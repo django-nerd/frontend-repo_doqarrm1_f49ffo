@@ -3,10 +3,10 @@ import Spline from '@splinetool/react-spline'
 import Carousel from './components/Carousel'
 import Hero from './components/Hero'
 import { PageIntro, PageCompetencies, PageProjects, PageCerts, PageCTA } from './components/Pages'
+import SocialPost from './components/SocialPost'
 
 function App() {
   const pages = [
-    // Page 1: Intro
     (
       <PageIntro
         name="Alex Morgan"
@@ -21,7 +21,6 @@ function App() {
       />
     ),
 
-    // Page 2: Core Competencies
     (
       <PageCompetencies
         items={[
@@ -33,7 +32,6 @@ function App() {
       />
     ),
 
-    // Page 3: Key Projects
     (
       <PageProjects
         projects={[
@@ -44,7 +42,6 @@ function App() {
       />
     ),
 
-    // Page 4: Certifications
     (
       <PageCerts
         certs={[
@@ -55,7 +52,6 @@ function App() {
       />
     ),
 
-    // Page 5: CTA
     (<PageCTA availability={2} />)
   ]
 
@@ -73,7 +69,16 @@ function App() {
 
         <Hero />
 
-        <Carousel pages={pages} />
+        <div className="grid md:grid-cols-2 gap-6">
+          <Carousel pages={pages} />
+          <SocialPost
+            pages={<div className='h-full'><Carousel pages={pages} /></div>}
+            avatarUrl="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=256&auto=format&fit=crop"
+            name="Alex Morgan"
+            title="Senior Data Scientist"
+            platform="LinkedIn"
+          />
+        </div>
       </div>
     </div>
   )
